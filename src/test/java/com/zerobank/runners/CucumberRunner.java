@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         dryRun = false,
         strict = false,
-        tags = "@non-authorized",
+        tags = "@account-summary",
         plugin = {
 
         "html:target/default-report",

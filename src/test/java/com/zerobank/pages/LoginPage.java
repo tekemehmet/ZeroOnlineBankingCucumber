@@ -2,6 +2,7 @@ package com.zerobank.pages;
 
 import com.zerobank.utilities.BrowserUtilities;
 import com.zerobank.utilities.ConfigurationReader;
+import com.zerobank.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends AbstractPageBase {
 
-    @FindBy(id = "user_login")
+    @FindBy(css = "#user_login")
     private WebElement username;
 
     @FindBy(id = "user_password")
@@ -17,6 +18,8 @@ public class LoginPage extends AbstractPageBase {
 
     @FindBy(xpath = "//div[@class='alert alert-error']")
     private WebElement warningMessage;
+
+
 
 
     /**
@@ -44,6 +47,11 @@ public class LoginPage extends AbstractPageBase {
     public String getWarningMessage(){
 
         return warningMessage.getText();
+    }
+
+    public void navigateToBack(){
+        driver.navigate().back();
+
     }
 
 

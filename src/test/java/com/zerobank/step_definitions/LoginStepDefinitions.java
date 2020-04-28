@@ -8,8 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-
 
 public class LoginStepDefinitions {
 
@@ -39,9 +37,18 @@ public class LoginStepDefinitions {
 
     }
 
+
+    @Then("user log out")
+    public void user_log_out() {
+        BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.wait(2);
+        loginPage.clickLogoutButton();
+    }
+
     @When("user logs in as a  wrong username and wrong password")
     public void user_logs_in_as_a_wrong_username_and_wrong_password() {
         System.out.println("Login as a non-authorized user");
+        loginPage.clickOnSignInButton();
         loginPage.login("mehmet","123456");
     }
 
