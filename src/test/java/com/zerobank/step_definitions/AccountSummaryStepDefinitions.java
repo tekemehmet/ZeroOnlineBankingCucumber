@@ -28,9 +28,10 @@ public class AccountSummaryStepDefinitions {
     public void verify_that_Account_summary_has_and(String string, String string2, String string3, String string4) {
 
         BrowserUtilities.waitForPageToLoad(10);
-        accountSummaryPage.getHeaderName();
 
         List<String> expectedHeader = Arrays.asList(string,string2,string3,string4);
+
+        BrowserUtilities.wait(3);
 
         Assert.assertEquals(expectedHeader,accountSummaryPage.getHeaderName());
 
@@ -40,9 +41,11 @@ public class AccountSummaryStepDefinitions {
     @Then("Verify that Credit Accounts table have {string} , {string} and {string}")
     public void verify_that_Credit_Accounts_table_have_and(String string, String string2, String string3) {
         System.out.println("Verify that Credit Accounts table have "+string+ " , "+ string2 + " and "+string3);
-        accountSummaryPage.getColumnNames();
+        BrowserUtilities.waitForPageToLoad(10);
 
         List<String> expected = Arrays.asList(string,string2,string3);
+
+        BrowserUtilities.wait(3);
 
         Assert.assertEquals(expected, accountSummaryPage.getColumnNames());
 

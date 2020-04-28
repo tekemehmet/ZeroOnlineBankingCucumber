@@ -6,9 +6,13 @@ Feature: Account Summary
   Accounts, Credit Accounts, Loan Accounts. Credit Accounts table must have columns
   Account, Credit Card and Balance.
 
+  Background: open main page
+    Given user is on the login page
+    When user logs in as a authorized user
+
   @title-verify
   Scenario: Account summary page should have the title Zero – Account summary.
-    Then Verify that Account summary page title "Zero-Account Summary"
+    Then Verify that Account summary page title "Zero - Account Summary"
 
 
     @verify-header
