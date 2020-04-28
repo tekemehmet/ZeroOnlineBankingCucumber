@@ -15,8 +15,8 @@ public class LoginStepDefinitions {
 
     LoginPage loginPage = new LoginPage();
 
-    @Given("authorized user is on the login page")
-    public void authorized_user_is_on_the_login_page() {
+    @Given("user is on the login page")
+    public void user_is_on_the_login_page() {
         System.out.println("Open login page");
         String url = ConfigurationReader.getProperty("url");
         Driver.getDriver().get(url);
@@ -37,14 +37,6 @@ public class LoginStepDefinitions {
         Assert.assertTrue(loginPage.displayedAccountSummary());
 
 
-    }
-
-    @Given("non-authorized user is on the login page")
-    public void non_authorized_user_is_on_the_login_page() {
-        System.out.println("Open login page");
-        String url = ConfigurationReader.getProperty("url");
-        Driver.getDriver().get(url);
-        loginPage.clickOnSignInButton();
     }
 
     @When("user logs in as a  wrong username and wrong password")

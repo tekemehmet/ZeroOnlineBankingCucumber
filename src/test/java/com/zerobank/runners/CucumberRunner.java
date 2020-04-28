@@ -1,6 +1,5 @@
 package com.zerobank.runners;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -10,19 +9,14 @@ import org.junit.runner.RunWith;
         glue = "com/zerobank/step_definitions",
         features = "src/test/resources/features",
         dryRun = false,
-        strict = true,
-        tags = "",
-
+        strict = false,
+        tags = "@non-authorized",
         plugin = {
 
         "html:target/default-report",
         "json:target/cucumber.json",
         "rerun:target/rerun.txt"
 }
-
 )
-
 public class CucumberRunner {
-
-
 }
