@@ -11,8 +11,14 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         dryRun = false,
         strict = true,
-        tags = "@non-authorized"
+        tags = "",
 
+        plugin = {
+
+        "html:target/default-report",
+        "json:target/cucumber.json",
+        "rerun:target/rerun.txt"
+}
 
 )
 
