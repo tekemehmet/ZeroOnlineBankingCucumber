@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class AccountSummaryPage extends AbstractPageBase {
@@ -23,54 +24,30 @@ public class AccountSummaryPage extends AbstractPageBase {
     @FindBy(xpath = "//h2[text()='Loan Accounts']")
     private WebElement loanAccounts;
 
-    public List<WebElement> getHeaderName(){
+    public List<String> getHeaderName(){
 
         List<WebElement> headerNames = driver.findElements(By.tagName("h2"));
-
+        List<String> headerNamesText = null;
         for (WebElement headerName : headerNames){
             System.out.println(headerName.getText());
+            headerNamesText.add(headerName.getText());
         }
-        return headerNames;
+        return headerNamesText;
     }
 
 
 
-    public List<WebElement> getColumnNames() {
+    public List<String> getColumnNames() {
 
         List<WebElement> columnNames = driver.findElements(By.xpath("(//table)[3]//th"));
-
+        List<String> columnNamesText = null;
         for (WebElement columnName : columnNames) {
-            System.out.println(columnName.getText());
+
+            columnNamesText.add(columnName.getText());
 
         }
-        return columnNames;
+        return columnNamesText;
 
     }
-
-
-
-
-
-    public String getCashAccountText(){
-        return cashAccounts.getText();
-    }
-
-    public String getInvestmentAccountText(){
-        return investmentAccounts.getText();
-    }
-
-    public String getCreditAccountText(){
-        return creditAccounts.getText();
-    }
-
-    public String getLoanAccountText(){
-        return loanAccounts.getText();
-    }
-
-
-
-
-
-
 
 }

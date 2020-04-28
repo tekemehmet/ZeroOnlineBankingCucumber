@@ -19,6 +19,7 @@ public class AccountSummaryStepDefinitions {
         String actualTitle = Driver.getDriver().getTitle();
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(2);
+
         Assert.assertEquals(expectedTitle,actualTitle);
 
     }
