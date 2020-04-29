@@ -31,7 +31,7 @@ public abstract class AbstractPageBase {
     @FindBy(id = "searchTerm")
     private WebElement search;
 
-    @FindBy(xpath = "//button[@id='signin_button']")
+    @FindBy(xpath = "//button[@class='signin btn btn-info']")
     private WebElement signInButton;
 
     @FindBy(linkText = "Account Summary")

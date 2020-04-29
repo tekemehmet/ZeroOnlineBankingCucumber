@@ -22,6 +22,8 @@ public class AccountSummaryStepDefinitions {
 
         Assert.assertEquals(expectedTitle,actualTitle);
 
+        BrowserUtilities.wait(3);
+
     }
 
     @Then("Verify that Account summary has {string},{string},{string} and {string}")
@@ -35,19 +37,23 @@ public class AccountSummaryStepDefinitions {
 
         Assert.assertEquals(expectedHeader,accountSummaryPage.getHeaderName());
 
+        BrowserUtilities.wait(3);
+
 
     }
 
     @Then("Verify that Credit Accounts table have {string} , {string} and {string}")
     public void verify_that_Credit_Accounts_table_have_and(String string, String string2, String string3) {
-        System.out.println("Verify that Credit Accounts table have "+string+ " , "+ string2 + " and "+string3);
+
         BrowserUtilities.waitForPageToLoad(10);
 
-        List<String> expected = Arrays.asList(string,string2,string3);
+        List<String> expectedColumnNames = Arrays.asList(string,string2,string3);
 
         BrowserUtilities.wait(3);
 
-        Assert.assertEquals(expected, accountSummaryPage.getColumnNames());
+        Assert.assertEquals(expectedColumnNames, accountSummaryPage.getColumnNames());
+
+        BrowserUtilities.wait(3);
 
     }
 

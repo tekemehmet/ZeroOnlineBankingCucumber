@@ -24,4 +24,4 @@ Feature: Account Summary
 
  @table-header-verify
   Scenario: Credit Accounts table must have columns, Account, Credit Card and Balance.
-    Then Verify that Credit Accounts table have "Account" , "Credit" and "Balance"
+    Then Verify that Credit Accounts table have "Account" , "Credit Card" and "Balance"
