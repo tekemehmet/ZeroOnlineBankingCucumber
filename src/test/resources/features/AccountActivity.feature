@@ -1,0 +1,34 @@
+@Account_Activity
+Feature: Account Activity
+
+  Account Activity page should have the title Zero – Account activity.
+  In the Account drop down default option should be Savings. Account drop down
+  should have the following options: Savings, Checking, Loan, Credit Card, Brokerage.
+  Transactions table should have column names Date, Description, Deposit,
+  Withdrawal
+
+  Background: open main page
+    Given user is on the login page
+    When user logs in as a authorized user
+    Then user navigate to "Account Activity" module
+
+  Scenario: Account Activity page should have the title Zero – Account activity.
+    Then Verify that Account Activity page title "Zero - Account Activity"
+
+  Scenario: In the Account drop down default option should be Savings
+    Then Verify that Account drop down default is "Savings"
+
+  Scenario: Account drop down should have the following options: Savings, Checking, Loan, Credit Card, Brokerage.
+    Then Verify that drop down should have following options:
+      | Savings     |
+      | Checking    |
+      | Loan        |
+      | Credit Card |
+      | Brokerage   |
+
+    Scenario: Transactions table should have column names Date, Description, Deposit, Withdrawal
+      Then Verify that transactions table should have following options
+      |Date|
+      |Description|
+      |Deposit    |
+      |Withdrawal |

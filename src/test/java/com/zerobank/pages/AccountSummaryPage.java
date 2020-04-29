@@ -1,7 +1,10 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.BrowserUtilities;
+import com.zerobank.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +12,10 @@ import java.util.List;
 public class AccountSummaryPage extends AbstractPageBase {
 
 
-    public List<String> getHeaderName(){
+
+
+
+    public List<String> getPageHeaderName(){
 
         List<WebElement> headerNames = driver.findElements(By.xpath("//div[@class='offset2 span8']/h2"));
         List<String> headerNamesText = new ArrayList<>();
@@ -22,7 +28,7 @@ public class AccountSummaryPage extends AbstractPageBase {
 
 
 
-    public List<String> getColumnNames() {
+    public List<String> getTableColumnNames() {
 
         List<WebElement> columnNames = driver.findElements(By.xpath("(//table)[3]//th"));
         List<String> columnNamesText = new ArrayList<>();

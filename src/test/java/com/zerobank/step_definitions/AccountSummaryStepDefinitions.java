@@ -17,13 +17,13 @@ public class AccountSummaryStepDefinitions {
     @Then("Verify that Account summary page title {string}")
     public void verify_that_Account_summary_page_title(String expectedTitle) {
         System.out.println("Verify that Account summary page title");
+
         String actualTitle = Driver.getDriver().getTitle();
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(2);
 
         Assert.assertEquals(expectedTitle,actualTitle);
 
-        BrowserUtilities.wait(3);
 
     }
 
@@ -36,9 +36,7 @@ public class AccountSummaryStepDefinitions {
 
         BrowserUtilities.wait(3);
 
-        Assert.assertEquals(expectedHeader,accountSummaryPage.getHeaderName());
-
-        BrowserUtilities.wait(3);
+        Assert.assertEquals(expectedHeader,accountSummaryPage.getPageHeaderName());
 
 
     }
@@ -52,9 +50,9 @@ public class AccountSummaryStepDefinitions {
 
         BrowserUtilities.wait(3);
 
-        Assert.assertEquals(expectedColumnNames, accountSummaryPage.getColumnNames());
+        Assert.assertEquals(expectedColumnNames, accountSummaryPage.getTableColumnNames());
 
-        BrowserUtilities.wait(3);
+
 
     }
 
