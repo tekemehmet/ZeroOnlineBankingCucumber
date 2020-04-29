@@ -1,4 +1,4 @@
-@account-summary
+@accountSummary
 Feature: Account Summary
 
   Account summary page should have the title Zero – Account summary. Account
