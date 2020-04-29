@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         glue = "com/zerobank/step_definitions",
         features = "src/test/resources/features",
-        dryRun = true,
+        dryRun = false,
         strict = false,
-        tags = "@account_Summary",
+        tags = "",
         plugin = {
 
         "html:target/default-report",

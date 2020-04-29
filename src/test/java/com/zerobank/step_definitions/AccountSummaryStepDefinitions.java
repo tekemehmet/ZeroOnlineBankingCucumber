@@ -30,17 +30,20 @@ public class AccountSummaryStepDefinitions {
 
     @And("Verify that Account summary should have as follows:")
     public void verify_that_Account_summary_should_have_as_follows(List<String> dataTable) {
+        System.out.println("Verify that Account summary should have as follows:");
+        System.out.println(dataTable);
 
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(3);
 
         Assert.assertEquals(dataTable,accountSummaryPage.getPageHeaderName());
 
-
     }
 
     @Then("Verify that Credit Accounts table should have as follows:")
     public void verify_that_Credit_Accounts_table_should_have_as_follows(List<String> dataTable) {
+        System.out.println("Verify that Credit Accounts table should have as follows:");
+        System.out.println(dataTable);
 
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(3);

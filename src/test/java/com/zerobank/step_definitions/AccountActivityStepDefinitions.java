@@ -15,6 +15,7 @@ public class AccountActivityStepDefinitions {
     @Then("user navigate to {string} module")
     public void user_navigate_to_module(String string) {
         BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.wait(1);
         accountActivityPage.navigateTo("Account Activity");
     }
 
@@ -37,6 +38,8 @@ public class AccountActivityStepDefinitions {
     public void verify_that_Account_drop_down_default_is(String string) {
         System.out.println("Verify that Account drop down default is Saving");
         BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.wait(2);
+
         Assert.assertEquals(string,accountActivityPage.getDefaultAccountType());
 
 
@@ -48,7 +51,8 @@ public class AccountActivityStepDefinitions {
         System.out.println("Verify that drop down as list");
         System.out.println(dataTable);
         BrowserUtilities.waitForPageToLoad(10);
-        BrowserUtilities.wait(3);
+        BrowserUtilities.wait(2);
+
         Assert.assertEquals(dataTable,accountActivityPage.getDropDownList());
 
     }
@@ -58,7 +62,8 @@ public class AccountActivityStepDefinitions {
         System.out.println("Verify that transactions table as list");
         System.out.println(dataTable);
         BrowserUtilities.waitForPageToLoad(10);
-        BrowserUtilities.wait(3);
+        BrowserUtilities.wait(2);
+
         Assert.assertEquals(dataTable,accountActivityPage.getTableColumnNames());
 
 
