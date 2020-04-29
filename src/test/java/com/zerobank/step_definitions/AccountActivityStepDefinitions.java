@@ -48,6 +48,7 @@ public class AccountActivityStepDefinitions {
         System.out.println("Verify that drop down as list");
         System.out.println(dataTable);
         BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.wait(3);
         Assert.assertEquals(dataTable,accountActivityPage.getDropDownList());
 
     }
@@ -57,6 +58,7 @@ public class AccountActivityStepDefinitions {
         System.out.println("Verify that transactions table as list");
         System.out.println(dataTable);
         BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.wait(3);
         Assert.assertEquals(dataTable,accountActivityPage.getTableColumnNames());
 
 

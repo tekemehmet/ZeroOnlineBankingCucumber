@@ -15,13 +15,22 @@ Feature: Account Summary
     Then Verify that Account summary page title "Zero - Account Summary"
 
 
+
     @verify_header
     Scenario: Account summary page should have to following account types: Cash Accounts, Investment
     Accounts, Credit Accounts, Loan Accounts.
 
-      And Verify that Account summary has "Cash Accounts","Investment Accounts","Credit Accounts" and "Loan Accounts"
+      And Verify that Account summary should have as follows:
+      |Cash Accounts|
+      |Investment Accounts|
+      |Credit Accounts    |
+      |Loan Accounts      |
+
 
 
  @table_header_verify
   Scenario: Credit Accounts table must have columns, Account, Credit Card and Balance.
-    Then Verify that Credit Accounts table have "Account" , "Credit Card" and "Balance"
+    Then Verify that Credit Accounts table should have as follows:
+   |Account|
+   |Credit Card|
+   |Balance    |

@@ -38,8 +38,8 @@ public class AccountActivityPage extends AbstractPageBase {
 
         List<WebElement> columnNames = tableHeaderElements;
         List<String> columnNamesText = new ArrayList<>();
-        for (WebElement columnName : columnNames){
-            columnNamesText.add(columnName.getText());
+        for (WebElement eachElement : columnNames){
+            columnNamesText.add(eachElement.getText());
         }
         return columnNamesText;
 

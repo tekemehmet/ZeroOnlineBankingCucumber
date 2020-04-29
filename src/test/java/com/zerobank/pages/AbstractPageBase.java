@@ -44,14 +44,14 @@ public abstract class AbstractPageBase {
     @FindBy(xpath = "//a[text()='Logout']")
     private WebElement logout;
 
-//    @FindBy(linkText = "Account Summary")
-//    private WebElement accountSummary;
-//
-//
-//    public boolean displayedAccountSummary(){
-//        return accountSummary.isDisplayed();
-//
-//    }
+    @FindBy(linkText = "Account Summary")
+    private WebElement accountSummary;
+
+
+    public boolean displayedAccountSummary(){
+        return accountSummary.isDisplayed();
+
+    }
 
 
     Actions actions = new Actions(driver);

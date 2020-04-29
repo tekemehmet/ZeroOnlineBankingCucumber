@@ -11,13 +11,16 @@ import java.util.List;
 
 public class AccountSummaryPage extends AbstractPageBase {
 
+    @FindBy(xpath = "(//table)[3]//th")
+    private List<WebElement> tableHeaderElements;
 
-
+    @FindBy(xpath = "//div[@class='offset2 span8']/h2")
+    private List<WebElement> pageHeaderElements;
 
 
     public List<String> getPageHeaderName(){
 
-        List<WebElement> headerNames = driver.findElements(By.xpath("//div[@class='offset2 span8']/h2"));
+        List<WebElement> headerNames = pageHeaderElements;
         List<String> headerNamesText = new ArrayList<>();
         for (WebElement headerName : headerNames){
 
@@ -30,7 +33,7 @@ public class AccountSummaryPage extends AbstractPageBase {
 
     public List<String> getTableColumnNames() {
 
-        List<WebElement> columnNames = driver.findElements(By.xpath("(//table)[3]//th"));
+        List<WebElement> columnNames = tableHeaderElements;
         List<String> columnNamesText = new ArrayList<>();
         for (WebElement columnName : columnNames) {
 
