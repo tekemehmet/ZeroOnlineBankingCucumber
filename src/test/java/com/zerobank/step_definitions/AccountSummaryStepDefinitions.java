@@ -50,6 +50,8 @@ public class AccountSummaryStepDefinitions {
 
         Assert.assertEquals(dataTable, accountSummaryPage.getTableColumnNames());
 
+        BrowserUtilities.wait(5);
+
     }
 
 }

@@ -31,8 +31,8 @@
                 <version>3.0.0-M4</version>
                 <configuration>
                     <!-- for parallel running Cucumber-->
-                    <parallel>methods</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
+<!--                    <parallel>methods</parallel>-->
+<!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
                     <includes>
                         <!-- for  run class or classes-->
                         <include>**/*Runner.java</include>

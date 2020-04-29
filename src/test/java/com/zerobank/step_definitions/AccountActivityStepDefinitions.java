@@ -65,6 +65,7 @@ public class AccountActivityStepDefinitions {
         BrowserUtilities.wait(2);
 
         Assert.assertEquals(dataTable,accountActivityPage.getTableColumnNames());
+        BrowserUtilities.wait(5);
 
 
     }
