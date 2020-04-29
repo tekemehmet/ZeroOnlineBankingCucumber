@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         dryRun = false,
         strict = false,
-        tags = "@table-header-verify",
+        tags = "@table_header_verify",
         plugin = {
 
         "html:target/default-report",

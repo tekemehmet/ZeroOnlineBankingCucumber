@@ -3,6 +3,7 @@ package com.zerobank.step_definitions;
 import com.zerobank.pages.AccountSummaryPage;
 import com.zerobank.utilities.BrowserUtilities;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import java.util.Arrays;
@@ -26,7 +27,7 @@ public class AccountSummaryStepDefinitions {
 
     }
 
-    @Then("Verify that Account summary has {string},{string},{string} and {string}")
+    @And("Verify that Account summary has {string},{string},{string} and {string}")
     public void verify_that_Account_summary_has_and(String string, String string2, String string3, String string4) {
 
         BrowserUtilities.waitForPageToLoad(10);

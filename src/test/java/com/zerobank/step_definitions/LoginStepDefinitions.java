@@ -4,6 +4,7 @@ import com.zerobank.pages.LoginPage;
 import com.zerobank.utilities.BrowserUtilities;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +28,7 @@ public class LoginStepDefinitions {
         loginPage.login();
     }
 
-    @Then("authorized user should verify that account summary page is displayed")
+    @And("authorized user should verify that account summary page is displayed")
     public void authorized_user_should_verify_that_account_summary_page_is_displayed() {
         System.out.println("verify that account summary page is displayed");
         BrowserUtilities.waitForPageToLoad(10);
@@ -45,7 +46,7 @@ public class LoginStepDefinitions {
         loginPage.clickLogoutButton();
     }
 
-    @When("user logs in as a  wrong username and wrong password")
+    @And("user logs in as a  wrong username and wrong password")
     public void user_logs_in_as_a_wrong_username_and_wrong_password() {
         System.out.println("Login as a non-authorized user");
         loginPage.clickOnSignInButton();

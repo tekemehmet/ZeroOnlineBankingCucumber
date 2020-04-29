@@ -19,7 +19,7 @@ Feature: Account Summary
     Scenario: Account summary page should have to following account types: Cash Accounts, Investment
     Accounts, Credit Accounts, Loan Accounts.
 
-      Then Verify that Account summary has "Cash Accounts","Investment Accounts","Credit Accounts" and "Loan Accounts"
+      And Verify that Account summary has "Cash Accounts","Investment Accounts","Credit Accounts" and "Loan Accounts"
 
 
  @table_header_verify
