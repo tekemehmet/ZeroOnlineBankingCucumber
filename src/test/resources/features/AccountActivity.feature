@@ -1,11 +1,13 @@
 @Account_Activity
 Feature: Account Activity
 
-  Account Activity page should have the title Zero – Account activity.
-  In the Account drop down default option should be Savings. Account drop down
-  should have the following options: Savings, Checking, Loan, Credit Card, Brokerage.
-  Transactions table should have column names Date, Description, Deposit,
-  Withdrawal
+  As user, I want to be able to use Accout Activity
+
+  #Account Activity page should have the title Zero – Account activity.
+  #In the Account drop down default option should be Savings. Account drop down
+  #should have the following options: Savings, Checking, Loan, Credit Card, Brokerage.
+  #Transactions table should have column names Date, Description, Deposit,
+  #Withdrawal
 
   Background: open main page
     Given user is on the login page

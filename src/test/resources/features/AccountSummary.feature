@@ -1,10 +1,12 @@
 @account_Summary
 Feature: Account Summary
 
-  Account summary page should have the title Zero – Account summary. Account
-  summary page should have to following account types: Cash Accounts, Investment
-  Accounts, Credit Accounts, Loan Accounts. Credit Accounts table must have columns
-  Account, Credit Card and Balance.
+  As user, I want to be able to see Account Summary
+
+  #Account summary page should have the title Zero – Account summary. Account
+  #summary page should have to following account types: Cash Accounts, Investment
+  #Accounts, Credit Accounts, Loan Accounts. Credit Accounts table must have columns
+  #Account, Credit Card and Balance.
 
   Background: open main page
     Given user is on the login page

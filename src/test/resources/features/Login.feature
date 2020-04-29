@@ -1,8 +1,10 @@
 @login
   Feature: Login
 
-    Only authorized users should be able to login to the application. When user
-    logs in with valid credentials, Account summary page should be displayed
+    As user, I want to be able to login with username and password
+
+    #Only authorized users should be able to login to the application. When user
+    #logs in with valid credentials, Account summary page should be displayed
 
   Background: open main page
     Given user is on the login page
