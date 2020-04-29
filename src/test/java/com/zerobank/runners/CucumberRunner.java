@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         glue = "com/zerobank/step_definitions",
         features = "src/test/resources/features",
         dryRun = false,
-        strict = true,
-        tags = "",
+        strict = false,
+        tags = "@PayBills",
         plugin = {
 
         "html:target/default-report",

@@ -1,7 +1,7 @@
 @Account_Activity
 Feature: Account Activity
 
-  As user, I want to be able to use Accout Activity
+  As user, I want to be able to use Account Activity
 
   #Account Activity page should have the title Zero – Account activity.
   #In the Account drop down default option should be Savings. Account drop down
