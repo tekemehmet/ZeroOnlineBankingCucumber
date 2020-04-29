@@ -20,12 +20,14 @@ public class LoginStepDefinitions {
         String url = ConfigurationReader.getProperty("url");
         Driver.getDriver().get(url);
         loginPage.clickOnSignInButton();
+        BrowserUtilities.wait(2);
     }
 
     @When("user logs in as a authorized user")
     public void user_logs_in_as_a_authorized_user() {
         System.out.println("Login as an authorized user");
         loginPage.login();
+        BrowserUtilities.wait(2);
     }
 
     @And("authorized user should verify that account summary page is displayed")
@@ -51,6 +53,7 @@ public class LoginStepDefinitions {
         System.out.println("Login as a non-authorized user");
         loginPage.clickOnSignInButton();
         loginPage.login("mehmet","123456");
+        BrowserUtilities.wait(2);
     }
 
     @Then("verify that error message should be displayed")
@@ -58,7 +61,7 @@ public class LoginStepDefinitions {
         String expected = "Login and/or password are wrong.";
         String actual = loginPage.getWarningMessage();
         BrowserUtilities.waitForPageToLoad(20);
-        BrowserUtilities.wait(5);
+        BrowserUtilities.wait(2);
         Assert.assertEquals(expected, actual);
     }
 
