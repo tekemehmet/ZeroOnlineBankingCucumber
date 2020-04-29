@@ -8,7 +8,7 @@
     Given user is on the login page
     When user logs in as a authorized user
 
-    @authorized  @non-authorized
+    @authorized  @non_authorized
     Scenario: Login as authorized user and Account summary page should be displayed
       Then authorized user should verify that account summary page is displayed
       Then user log out
