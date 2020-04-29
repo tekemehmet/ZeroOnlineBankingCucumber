@@ -47,6 +47,8 @@ public class AccountActivityStepDefinitions {
     public void verify_that_drop_down_should_have_following_options(List<String> dataTable) {
         System.out.println("Verify that drop down as list");
         System.out.println(dataTable);
+        BrowserUtilities.waitForPageToLoad(10);
+        Assert.assertEquals(dataTable,accountActivityPage.getDropDownList());
 
     }
 

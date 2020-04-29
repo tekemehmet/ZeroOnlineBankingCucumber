@@ -1,5 +1,6 @@
 package com.zerobank.pages;
 
+import io.cucumber.java.bs.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,15 @@ public class AccountActivityPage extends AbstractPageBase {
 
     public String getDefaultAccountType(){
         return defaultDropDownElement.getText();
+    }
+
+    public List<String> getDropDownList(){
+        List<WebElement> list = dropDrownElements;
+        List<String> listText = new ArrayList<>();
+        for (WebElement eachElement : list){
+            listText.add(eachElement.getText());
+        }
+        return listText;
     }
 
 
