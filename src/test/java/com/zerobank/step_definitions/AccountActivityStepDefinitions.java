@@ -13,10 +13,10 @@ public class AccountActivityStepDefinitions {
     AccountActivityPage accountActivityPage = new AccountActivityPage();
 
     @Then("user navigate to {string} module")
-    public void user_navigate_to_module(String string) {
+    public void user_navigate_to_module(String module) {
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(2);
-        accountActivityPage.navigateTo("Account Activity");
+        accountActivityPage.navigateTo(module);
     }
 
 

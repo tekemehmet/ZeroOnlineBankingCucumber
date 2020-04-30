@@ -1,15 +1,15 @@
 @PayBills
 Feature: Pay Bills
 
-  As user, I want to be able to use
+  As user, I want to be able to use Pay Bills functionality
 
-  Account Activity page should have the title Zero – Pay Bills. When user completes a
-  successful Pay operation, The payment was successfully submitted. should be
-  displayed. When user tries to make a payment without entering the amount or date,
-  Please fill out this field message! should be displayed.
-  Amount field should not accept alphabetical or special characters. Date field should
-  not accept alphabetical characters.
-  NOTE: For the date input field, you can just use sendKeys. No need to click on the date navigator.
+  #Account Activity page should have the title Zero – Pay Bills. When user completes a
+  #successful Pay operation, The payment was successfully submitted. should be
+  #displayed. When user tries to make a payment without entering the amount or date,
+  #Please fill out this field message! should be displayed.
+  #Amount field should not accept alphabetical or special characters. Date field should
+  #not accept alphabetical characters.
+  #NOTE: For the date input field, you can just use sendKeys. No need to click on the date navigator.
 
   Background: open main page
     Given user is on the login page

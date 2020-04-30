@@ -33,15 +33,16 @@ public class PayBillsPage extends AbstractPageBase {
 
     public void setPayeeSelect(String payee){
         select = new Select(payeeSelect);
-        select.selectByValue(payee);
+        select.selectByVisibleText(payee);
     }
 
     public void setAccountSelect(String account){
         select = new Select(accountSelect);
-        select.selectByValue(account);
+        select.selectByVisibleText(account);
     }
 
     public void setAmountSelect(String amount){
+
         amountSelect.sendKeys(amount);
     }
 

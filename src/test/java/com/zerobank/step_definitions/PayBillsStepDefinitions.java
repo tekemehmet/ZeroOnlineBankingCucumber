@@ -14,12 +14,7 @@ public class PayBillsStepDefinitions {
 
     PayBillsPage payBillsPage = new PayBillsPage();
 
-    @Then("user navigate to {string} module")
-    public void user_navigate_to_module(String string) {
-        BrowserUtilities.waitForPageToLoad(10);
-        BrowserUtilities.wait(2);
-        payBillsPage.navigateTo(string);
-    }
+
 
 
     @Then("Verify that Pay Bills page title {string}")
