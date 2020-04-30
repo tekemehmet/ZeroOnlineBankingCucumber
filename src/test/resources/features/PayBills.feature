@@ -14,19 +14,25 @@ Feature: Pay Bills
   Background: open main page
     Given user is on the login page
     When user logs in as a authorized user
+    Then user navigate to "Pay Bills" module
 
 
   @PayBills_Title
   Scenario: Pay Bills page should have the title Zero – Pay Bills.
-    Then user navigate to "Pay Bills" module
+
     Then Verify that Pay Bills page title "Zero - Pay Bills"
+
 
   @PayBills_Payee
   Scenario: user completes a successful Pay operation
-    Then user navigate to "Pay Bills" module
+
     And user creates a payment with following info:
       | Payee  | Account | Amount | Date       | Description  |
       | Sprint | Savings | 1000   | 2020-05-01 | Pay for Loan |
     Then user click on Pay button
     Then Verify that "The payment was successfully submitted." message
+
+
+
+
 

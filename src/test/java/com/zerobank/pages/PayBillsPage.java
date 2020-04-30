@@ -1,5 +1,7 @@
 package com.zerobank.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -62,5 +64,17 @@ public class PayBillsPage extends AbstractPageBase {
         return messageElements.getText();
     }
 
+
+    /**
+     * This method returns required field message if required field leaved empty
+     * @return message as String
+     */
+    public String getRequiredFieldAlert(String field) {
+
+            WebElement inputElement = driver.findElement(By.linkText(field));
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        return (String) js.executeScript("return arguments[0].validationMessage;", inputElement);
+    }
 
 }
