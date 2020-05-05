@@ -24,14 +24,14 @@ Feature: Pay Bills
 
 
   @PayBills_Payee_without_date_amount
-  Scenario Outline: user completes a successful Pay operation
+  Scenario Outline: user completes a unsuccessful Pay operation
 
     And user creates a payment with following info:
       | Payee   | Account   | Amount   | Date   | Description   |
       | <payee> | <account> | <amount> | <date> | <description> |
 
     Then user click on Pay button
-    Then Verify that "Please fill out this field message!" message
+    Then Verify that error message "Please fill out this field." message
 
     Examples:
 

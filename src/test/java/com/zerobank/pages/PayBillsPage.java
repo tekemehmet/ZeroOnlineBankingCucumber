@@ -1,9 +1,11 @@
 package com.zerobank.pages;
 
-import com.zerobank.utilities.Driver;
+import com.zerobank.utilities.BrowserUtilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class PayBillsPage extends AbstractPageBase {
@@ -26,7 +28,7 @@ public class PayBillsPage extends AbstractPageBase {
     @FindBy(css = "#pay_saved_payees")
     private WebElement payButton;
 
-    @FindBy(xpath = "//div[@id='alert_content']/span")
+    @FindBy(id = "alert_content")
     private WebElement messageElements;
 
 
@@ -43,20 +45,21 @@ public class PayBillsPage extends AbstractPageBase {
         select.selectByVisibleText(account);
     }
 
-    public void setAmountSelect(String amount){
+    public void setAmountSelect(String amount) {
         if (amount==null){
             amount="";
         }
-        amountSelect.sendKeys(amount);
-    }
+
+            amountSelect.sendKeys(amount);
+        }
 
 
-
-    public void setDateSelect(String date){
-        if(date==null){
+    public void setDateSelect(String date) {
+        if (date==null){
             date="";
         }
-        dateSelect.sendKeys(date);
+            dateSelect.sendKeys(date);
+
     }
 
     public void setDescriptionSelect(String description){
@@ -68,7 +71,17 @@ public class PayBillsPage extends AbstractPageBase {
     }
 
     public String getMessage(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("alert_content")));
         return messageElements.getText();
+    }
+
+
+    /**
+     * This method returns empty field name
+     * @return
+     */
+    public String getEmptyField() {
+        return emptyField;
     }
 
 
@@ -76,16 +89,9 @@ public class PayBillsPage extends AbstractPageBase {
      * This method returns required field message if required field leaved empty
      *
      */
-    public void setReactValue(WebElement element, String value)
-    {
-        String script = "var element = arguments[0];" +
-                "var value = arguments[1];" +
-                "var nativeInputValueSetter = Object.getOwnPropertyDescriptor(element._proto_, \"value\").set;" +
-                "nativeInputValueSetter.call(element, value);" +
-                "var customEvent = new Event(\"input\", { bubbles: true});" +
-                "element.dispatchEvent(customEvent);";
-        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
-        executor.executeScript(script, element, value);
+    public String getRequiredFieldAlert(){
+        //wait.until(ExpectedConditions.presenceOfElementLocated(By.id("alert_content")));
+        return (String)((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;", driver.findElement(By.name("amount")));
     }
 
 }

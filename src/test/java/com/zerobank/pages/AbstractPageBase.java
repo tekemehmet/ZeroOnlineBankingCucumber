@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
+
 
 /**
  * This class will be extended by page classes
@@ -25,6 +25,8 @@ public abstract class AbstractPageBase {
 
     protected WebDriver driver = Driver.getDriver();
     protected WebDriverWait wait = new WebDriverWait(driver,30);
+
+    protected String emptyField;
 
 
     public AbstractPageBase(){
@@ -48,6 +50,8 @@ public abstract class AbstractPageBase {
     private WebElement accountSummary;
 
 
+
+
     public boolean displayedAccountSummary(){
         return accountSummary.isDisplayed();
 
@@ -57,23 +61,18 @@ public abstract class AbstractPageBase {
     Actions actions = new Actions(driver);
 
     public void clickLogoutButton(){
-
         usernameElement.click();
         actions.moveToElement(logout).perform();
         logout.click();
         BrowserUtilities.wait(1);
 
-
-
     }
 
     public void clickOnSignInButton(){
-
         signInButton.click();
     }
 
     public void sendKeysToSearch(String searchText){
-
         search.sendKeys(searchText);
     }
 
@@ -89,6 +88,7 @@ public abstract class AbstractPageBase {
      *               Online Statements
      */
     public void navigateTo(String moduleName) {
+
         WebElement moduleElement = driver.findElement(By.linkText(moduleName));
         moduleElement.click();
     }
