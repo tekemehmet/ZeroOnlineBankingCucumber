@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         dryRun = false,
         strict = false,
-        tags = "@PayBills_2",
+        tags = "@PayBills_Payee_without_date_amount",
         plugin = {
 
         "html:target/default-report",

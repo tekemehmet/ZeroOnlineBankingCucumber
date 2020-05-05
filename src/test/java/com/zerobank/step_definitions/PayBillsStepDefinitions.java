@@ -14,6 +14,9 @@ public class PayBillsStepDefinitions {
 
     PayBillsPage payBillsPage = new PayBillsPage();
 
+    private String dateOrAmount="";
+
+
     @Then("Verify that Pay Bills page title {string}")
     public void verify_that_Pay_Bills_page_title(String expectedTitle) {
         System.out.println("User navigates to Pay Bills module");
@@ -38,7 +41,6 @@ public class PayBillsStepDefinitions {
 
     @Then("user creates a payment with following info:")
     public void user_creates_a_payment_with_following_info( List<Map<String,String>> dataTable) {
-
 
         for (Map<String,String> row : dataTable){
 
@@ -68,12 +70,32 @@ public class PayBillsStepDefinitions {
 
         }
 
-    @Then("Verify that error message {string} message")
-    public void verify_that_error_message_message(String warningMessage) {
+    @Then("user creates a payment with missing info:")
+    public void user_creates_a_payment_with_missing_info(List<Map<String,String>> dataTable) {
 
-        BrowserUtilities.waitForPageToLoad(10);
-        Assert.assertEquals(warningMessage, payBillsPage.getRequiredFieldAlert());
+        if (dataTable.get(0).get("Amount")==null){
+            dateOrAmount="Amount";
+        }
+        if (dataTable.get(0).get("Date")==null){
+            dateOrAmount="Date";
+        }
+
+        for (Map<String,String> row : dataTable){
+            payBillsPage.setPayeeSelect(row.get("Payee"));
+            payBillsPage.setAccountSelect(row.get("Account"));
+            payBillsPage.setAmountSelect(row.get("Amount"));
+            payBillsPage.setDateSelect(row.get("Date"));
+            payBillsPage.setDescriptionSelect("Description");
+        }
     }
+
+    @Then("Verify that error message {string}")
+    public void verify_that_error_message(String warningMessage) {
+        BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.wait(2);
+        Assert.assertEquals(warningMessage, payBillsPage.getPopUpAlert(dateOrAmount));
+    }
+
 
 
 }

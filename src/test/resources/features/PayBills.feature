@@ -58,7 +58,31 @@ Feature: Pay Bills
       | Wells Fargo     | Brokerage   | 1000   | 2020-05-10 | Test payment |
 
 
+  @PayBills_Payee_without_date_amount
+  Scenario Outline: user completes a unsuccessful Pay operation
 
+    And user creates a payment with missing info:
+      | Payee   | Account   | Amount   | Date   | Description   |
+      | <payee> | <account> | <amount> | <date> | <description> |
+
+    Then user click on Pay button
+    Then Verify that error message "Please fill out this field."
+
+    Examples:
+
+      | payee           | account     | amount | date       | description  |
+      | Sprint          | Savings     |        | 2020-05-10 | Test payment |
+      | Sprint          | Credit Card | 1000   |            | Test payment |
+      | Sprint          | Brokerage   |        | 2020-05-10 | Test payment |
+      | Bank of America | Savings     | 1000   |            | Test payment |
+      | Bank of America | Credit Card |        | 2020-05-10 | Test payment |
+      | Bank of America | Brokerage   | 1000   |            | Test payment |
+      | Apple           | Savings     |        | 2020-05-10 | Test payment |
+      | Apple           | Checking    | 1000   |            | Test payment |
+      | Apple           | Brokerage   |        | 2020-05-10 | Test payment |
+      | Wells Fargo     | Savings     | 1000   |            | Test payment |
+      | Wells Fargo     | Checking    |        | 2020-05-10 | Test payment |
+      | Wells Fargo     | Loan        | 1000   |            | Test payment |
 
 
 
