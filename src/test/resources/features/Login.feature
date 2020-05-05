@@ -12,7 +12,7 @@
 
     @authorized  @non_authorized
     Scenario: Login as authorized user and Account summary page should be displayed
-      And authorized user should verify that account summary page is displayed
+      And authorized user should verify that "Account Summary" page is displayed
       Then user log out
       And user logs in as a  wrong username and wrong password
       Then verify that error message should be displayed

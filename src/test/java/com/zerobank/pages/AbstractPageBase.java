@@ -49,13 +49,26 @@ public abstract class AbstractPageBase {
     @FindBy(linkText = "Account Summary")
     private WebElement accountSummary;
 
+    @FindBy(linkText = "Account Activity")
+    private WebElement accountActivity;
 
 
+    /**
+     * This method return Top module is displayed or not
+     * Account Summary, Account Activity, Transfer Funds, Pay Bills, My Money Map, Online Statements
+     * @param moduleName
+     * @return
+     */
+    public boolean isDisplayModule(String moduleName){
 
-    public boolean displayedAccountSummary(){
-        return accountSummary.isDisplayed();
+        return Driver.getDriver().findElement(By.linkText(moduleName)).isDisplayed();
+
+
 
     }
+
+
+
 
 
     Actions actions = new Actions(driver);

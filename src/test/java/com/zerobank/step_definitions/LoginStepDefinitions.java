@@ -30,13 +30,11 @@ public class LoginStepDefinitions {
         BrowserUtilities.wait(2);
     }
 
-    @And("authorized user should verify that account summary page is displayed")
-    public void authorized_user_should_verify_that_account_summary_page_is_displayed() {
-        System.out.println("verify that account summary page is displayed");
+    @When("authorized user should verify that {string} page is displayed")
+    public void authorized_user_should_verify_that_page_is_displayed(String string) {
+        System.out.println("authorized user should verify that Account Summary page is displayed");
+        loginPage.isDisplayModule(string);
         BrowserUtilities.waitForPageToLoad(10);
-        BrowserUtilities.wait(2);
-        Assert.assertTrue(loginPage.displayedAccountSummary());
-
 
     }
 
