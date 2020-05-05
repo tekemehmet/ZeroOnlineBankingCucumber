@@ -4,7 +4,7 @@ package com.zerobank.step_definitions;
 import com.zerobank.pages.PayBillsPage;
 import com.zerobank.utilities.BrowserUtilities;
 import com.zerobank.utilities.Driver;
-import io.cucumber.java.bs.A;
+
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -14,6 +14,8 @@ import java.util.Map;
 public class PayBillsStepDefinitions {
 
     PayBillsPage payBillsPage = new PayBillsPage();
+
+    private String dateOrAmount="";
 
 
     @Then("Verify that Pay Bills page title {string}")
@@ -40,23 +42,27 @@ public class PayBillsStepDefinitions {
 
     @Then("user creates a payment with following info:")
     public void user_creates_a_payment_with_following_info( List<Map<String,String>> dataTable) {
-
+        if (dataTable.get(0).get("Amount")==null){
+            dateOrAmount="Amount";
+        }
+        if (dataTable.get(0).get("Date")==null){
+            dateOrAmount="Date";
+        }
 
         for (Map<String,String> row : dataTable){
             payBillsPage.setPayeeSelect(row.get("Payee"));
-            BrowserUtilities.wait(1);
+
 
             payBillsPage.setAccountSelect(row.get("Account"));
-            BrowserUtilities.wait(1);
+
 
             payBillsPage.setAmountSelect(row.get("Amount"));
-            BrowserUtilities.wait(1);
 
             payBillsPage.setDateSelect(row.get("Date"));
-            BrowserUtilities.wait(1);
+
 
             payBillsPage.setDescriptionSelect("Description");
-            BrowserUtilities.wait(1);
+
 
 
         }
@@ -65,6 +71,7 @@ public class PayBillsStepDefinitions {
 
     @Then("user click on Pay button")
     public void user_click_on_Pay_button() {
+
         payBillsPage.clickPayButton();
     }
 
@@ -76,8 +83,10 @@ public class PayBillsStepDefinitions {
 
         Assert.assertEquals(expectedMessage, payBillsPage.getMessage());
 
-
         }
+
     }
+
+
 
 

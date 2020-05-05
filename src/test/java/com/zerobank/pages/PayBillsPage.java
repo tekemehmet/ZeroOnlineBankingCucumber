@@ -1,7 +1,6 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,11 +44,18 @@ public class PayBillsPage extends AbstractPageBase {
     }
 
     public void setAmountSelect(String amount){
-
+        if (amount==null){
+            amount="";
+        }
         amountSelect.sendKeys(amount);
     }
 
+
+
     public void setDateSelect(String date){
+        if(date==null){
+            date="";
+        }
         dateSelect.sendKeys(date);
     }
 
@@ -70,7 +76,7 @@ public class PayBillsPage extends AbstractPageBase {
      * This method returns required field message if required field leaved empty
      *
      */
-    public static void setReactValue(WebElement element, String value)
+    public void setReactValue(WebElement element, String value)
     {
         String script = "var element = arguments[0];" +
                 "var value = arguments[1];" +
