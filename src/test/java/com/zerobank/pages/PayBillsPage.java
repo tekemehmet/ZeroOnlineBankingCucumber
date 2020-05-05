@@ -1,5 +1,6 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -67,14 +68,18 @@ public class PayBillsPage extends AbstractPageBase {
 
     /**
      * This method returns required field message if required field leaved empty
-     * @return message as String
+     *
      */
-    public String getRequiredFieldAlert(String field) {
-
-            WebElement inputElement = driver.findElement(By.linkText(field));
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        return (String) js.executeScript("return arguments[0].validationMessage;", inputElement);
+    public static void setReactValue(WebElement element, String value)
+    {
+        String script = "var element = arguments[0];" +
+                "var value = arguments[1];" +
+                "var nativeInputValueSetter = Object.getOwnPropertyDescriptor(element._proto_, \"value\").set;" +
+                "nativeInputValueSetter.call(element, value);" +
+                "var customEvent = new Event(\"input\", { bubbles: true});" +
+                "element.dispatchEvent(customEvent);";
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript(script, element, value);
     }
 
 }

@@ -27,7 +27,6 @@ Feature: Account Activity
     Then Verify that drop down should have following options:
       | Savings     |
       | Checking    |
-      | Savings     |
       | Loan        |
       | Credit Card |
       | Brokerage   |

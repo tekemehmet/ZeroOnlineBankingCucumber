@@ -27,8 +27,13 @@ Feature: Pay Bills
   Scenario: user completes a successful Pay operation
 
     And user creates a payment with following info:
-      | Payee  | Account | Amount | Date       | Description  |
-      | Sprint | Savings | 1000   | 2020-05-01 | Pay for Loan |
+      | Payee           | Account   | Amount | Date       | Description  |
+      | Apple           | Loan      | 1000   | 2020-05-01 | Pay for Loan |
+      | Sprint          | Brokerage | 5000   | 2020-06-05 | Payment      |
+      | Bank of America | Cheking   | 100    | 2020-07-05 | Pay          |
+
+
+
     Then user click on Pay button
     Then Verify that "The payment was successfully submitted." message
 
