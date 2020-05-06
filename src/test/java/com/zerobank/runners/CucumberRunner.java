@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         dryRun = false,
         strict = false,
-        tags = "@AccountActivityNavigation",
+        tags = "@add_new_Payee",
         plugin = {
 
         "html:target/default-report",

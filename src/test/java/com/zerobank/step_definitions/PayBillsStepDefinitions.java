@@ -4,6 +4,7 @@ package com.zerobank.step_definitions;
 import com.zerobank.pages.PayBillsPage;
 import com.zerobank.utilities.BrowserUtilities;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import java.util.List;
@@ -96,6 +97,34 @@ public class PayBillsStepDefinitions {
         Assert.assertEquals(warningMessage, payBillsPage.getPopUpAlert(dateOrAmount));
     }
 
+    @Then("user navigate to PayBill submenu {string}")
+    public void user_navigate_to_PayBill_submenu(String string) {
+        System.out.println("User navigate to PayBill submenu Add New Payee");
+        payBillsPage.navigateToUnderPayBills(string);
+        BrowserUtilities.wait(3);
+    }
+
+    @Then("creates new payee using following information:")
+    public void creates_new_payee_using_following_information(Map<String,String> dataTable) {
+        System.out.println("User creates new payee");
+        BrowserUtilities.waitForPageToLoad(10);
+
+        payBillsPage.setPayeeName(dataTable.get("Payee Name"));
+        payBillsPage.setPayeeAddress(dataTable.get("Payee Address"));
+        payBillsPage.setPayeeAccount(dataTable.get("Account"));
+        payBillsPage.setPayeeDetails(dataTable.get("Payee Details"));
+
+        BrowserUtilities.wait(2);
+        payBillsPage.clickAddButton();
+
+    }
+
+    @Then("message {string} should be displayed")
+    public void message_should_be_displayed(String expected) {
+        System.out.println("message verifying");
+        Assert.assertEquals(expected,payBillsPage.getMessageNewPayee());
+
+    }
 
 
 }

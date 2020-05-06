@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import java.util.concurrent.BrokenBarrierException;
+
 
 public class AccountActivityNavigationStepDefinitions {
 
@@ -31,12 +31,6 @@ public class AccountActivityNavigationStepDefinitions {
     public void account_drop_down_should_have_selected(String accountList) {
         BrowserUtilities.waitForPageToLoad(10);
         Assert.assertTrue(accountActivityNavigationPage.isDisplayedAccountValue(accountList));
-    }
-
-    @When("the user clicks on {string} on the Account Summary page")
-    public void the_user_clicks_on_on_the_Account_Summary_page(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
 
